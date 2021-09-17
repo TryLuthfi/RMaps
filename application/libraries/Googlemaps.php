@@ -24,7 +24,7 @@ class Googlemaps
 	var $apiKey						= 'AIzaSyCx651xXA4TeK_0VMkTLbtPciMouSJiK6E'; 						// If you've got an API key you can use it by passing this parameter. Setup an API key here: https://code.google.com/apis/console
 	var $backgroundColor			= '';						// A hex color value shown as the map background when tiles have not yet loaded as the user pans
 	var $bicyclingOverlay			= FALSE;					// If set to TRUE will overlay bicycling information (ie. bike paths and suggested routes) onto the map by default 
-	var $center						= "37.4419, -122.1419";		// Sets the default center location (lat/long co-ordinate or address) of the map. If defaulting to the users location set to "auto"
+	var $center						= "";		// Sets the default center location (lat/long co-ordinate or address) of the map. If defaulting to the users location set to "auto"
 	var $class 						= '';						// A class name if wishing to style the map further through CSS. Can also be useful if wanting it to be responsive etc.
 	var $cluster					= FALSE;					// Whether to cluster markers
 	var $clusterGridSize			= 60;						// The grid size of a cluster in pixels
@@ -118,7 +118,7 @@ class Googlemaps
 	var $rectangles					= array();					// An array used by the library to store the rectangles as they are produced
 	var $overlays					= array();					// An array used by the library to store the overlays as they are produced
 
-	var $directions					= FALSE;					// Whether or not the map will be used to show directions
+	var $directions					= TRUE;					// Whether or not the map will be used to show directions
 	var $directionsStart			= "";						// The starting location (lat/long co-ordinate or address) of the directions. Set to 'auto' to default it to the users location
 	var $directionsEnd				= "";						// The destination point (lat/long co-ordinate or address) of the directions. Set to 'auto' to default it to the users location
 	var $directionsDivID			= "";						// An element's ID on the page where textual directions will be output to. Leave blank if not required
@@ -338,6 +338,7 @@ class Googlemaps
 			google.maps.event.addListener(marker_' . $marker_id . ', "click", function(event) {
 				iw_' . $this->map_name . '.setContent(this.get("content"));
 				iw_' . $this->map_name . '.open(' . $this->map_name . ', this);
+				
 			';
 			if ($marker['onclick'] != "") {
 				$marker_output .= $marker['onclick'] . '
@@ -2182,7 +2183,7 @@ class Googlemaps
 		//
 
 		$this->output_html .= '<div id="' . $this->map_div_id . '" style="width:' . $this->map_width . '; height:' . $this->map_height . ';"' . (($this->class != "") ? ' class="' . $this->class . '"' : '') . '></div>';
-
+		// $this->output_html .= '<div id="' . $this->map_div_id . '" style="width:' . $this->map_width . '; height:' . $this->map_height . ';"' . (($this->class != "") ? ' class="' . $this->class . '"' : '') . '></div>';
 		++$this->maps_loaded;
 
 		return array('js' => $this->output_js, 'html' => $this->output_html, 'markers' => $this->markersInfo);

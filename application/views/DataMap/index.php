@@ -178,8 +178,6 @@
                 </form>
             <?php endforeach; ?>
 
-
-
             <!-- COBA PANGGIL DATA MSQL -->
             <div class="row">
                 <!-- ISI -->

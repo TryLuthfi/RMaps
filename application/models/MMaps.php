@@ -5,7 +5,8 @@ class MMaps extends CI_Model
 {
     public function getData()
     {
-        $data = $this->db->query('SELECT * FROM tb_peta');
+        $this->db->join('tb_status', 'tb_peta.status = tb_status.id_status', 'left');
+        $data = $this->db->get('tb_peta');
         return $data;
     }
 }
