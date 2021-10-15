@@ -116,36 +116,153 @@ $id_menu = $this->uri->segment('1');
                     <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="<?= base_url('') ?>" class="nav-link <?php if ($id_menu ==  'Dashboard') {
-                                                                            echo "active";
-                                                                        } ?>">
+                        <a href="<?= base_url('Dashboard') ?>" class="nav-link <?php if ($id_menu ==  'Dashboard') {
+                                                                                    echo "active";
+                                                                                } ?>">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
                             </p>
                         </a>
                     </li>
-                    <li class="nav-item">
-                        <a href="<?= base_url('Map') ?>" class="nav-link <?php if ($id_menu == 'Map') {
-                                                                                echo "active";
-                                                                            } ?>">
-                            <i class="nav-icon fas fa-money-bill-wave"></i>
+                    <li class="nav-item has-treeview <?php if ($id_menu == 'KodeAkun' || $id_menu == 'KodeStokSelepan') {
+                                                            echo "menu-open";
+                                                        } ?>">
+                        <a href="#" class="nav-link <?php if ($id_menu == 'KodeAkun' || $id_menu == 'KodeStokSelepan ') {
+                                                        echo "active";
+                                                    } ?>">
+                            <i class="nav-icon fas fa-database"></i>
                             <p>
-                                WEBVIEW
-                                <!-- <span class="right badge badge-danger">New</span> -->
+                                Master
+                                <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('KodeStokSelepan') ?>" class="nav-link <?php if ($id_menu == 'KodeStokSelepan') {
+                                                                                                    echo "active";
+                                                                                                } ?>">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kode Stok Selepan</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('KodeAkun') ?>" class="nav-link <?php if ($id_menu == 'KodeAkun') {
+                                                                                            echo "active";
+                                                                                        } ?>">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Kode Akuntansi</p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="<?= base_url('DataMap') ?>" class="nav-link <?php if ($id_menu == 'DataMap') {
-                                                                                    echo "active";
-                                                                                } ?>">
-                            <i class="nav-icon fas fa-map-marker-alt"></i>
+                    <li class="nav-item has-treeview <?php if ($id_menu == 'StokSelepan' || $id_menu == 'Rincian') {
+                                                            echo "menu-open";
+                                                        } ?>">
+                        <a href="#" class="nav-link <?php if ($id_menu == 'StokSelepan' || $id_menu == 'Rincian ') {
+                                                        echo "active";
+                                                    } ?>">
+                            <i class="nav-icon fas fa-money-check-alt"></i>
                             <p>
-                                Data Map
-                                <!-- <span class="right badge badge-danger">New</span> -->
+                                Transaksi
+                                <i class="fas fa-angle-left right"></i>
                             </p>
                         </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('StokSelepan') ?>" class="nav-link <?php if ($id_menu == 'StokSelepan') {
+                                                                                                echo "active";
+                                                                                            } ?>">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Stok Selepan</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('Rincian') ?>" class="nav-link <?php if ($id_menu == 'Rincian') {
+                                                                                            echo "active";
+                                                                                        } ?>">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Rincian Akuntansi</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item has-treeview <?php if ($id_menu == 'NeracaStok' || $id_menu == 'Neraca') {
+                                                            echo "menu-open";
+                                                        } ?>">
+                        <a href="#" class="nav-link <?php if ($id_menu == 'NeracaStok' || $id_menu == 'Neraca ') {
+                                                        echo "active";
+                                                    } ?>">
+                            <i class="nav-icon fas fa-balance-scale"></i>
+                            <p>
+                                Neraca
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('NeracaStok') ?>" class="nav-link <?php if ($id_menu == 'NeracaStok') {
+                                                                                            echo "active";
+                                                                                        } ?>">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Stok Selepan</p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('Neraca') ?>" class="nav-link <?php if ($id_menu == 'Neraca') {
+                                                                                        echo "active";
+                                                                                    } ?>">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Akuntansi</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-header">Map View</li>
+                    <li class="nav-item has-treeview <?php if ($id_menu == 'Map' || $id_menu == 'DataMap') {
+                                                            echo "menu-open";
+                                                        } ?>">
+                        <a href="#" class="nav-link <?php if ($id_menu == 'Map' || $id_menu == 'DataMap') {
+                                                        echo "active";
+                                                    } ?>">
+                            <i class="nav-icon fas fa-money-check-alt"></i>
+                            <p>
+                                MAP
+                                <i class="fas fa-angle-left right"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('Map') ?>" class="nav-link <?php if ($id_menu == 'Map') {
+                                                                                        echo "active";
+                                                                                    } ?>">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>
+                                        WEBVIEW
+                                        <!-- <span class="right badge badge-danger">New</span> -->
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="<?= base_url('DataMap') ?>" class="nav-link <?php if ($id_menu == 'DataMap') {
+                                                                                            echo "active";
+                                                                                        } ?>">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>
+                                        Data Map
+                                        <!-- <span class="right badge badge-danger">New</span> -->
+                                    </p>
+                                </a>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </nav>

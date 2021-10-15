@@ -9,4 +9,13 @@ class MMaps extends CI_Model
         $data = $this->db->get('tb_peta');
         return $data;
     }
+
+    function get_babi()
+    {
+        $this->db->select('lat_peta');
+        $this->db->from('tb_peta');
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 }

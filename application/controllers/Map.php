@@ -14,8 +14,6 @@ class Map extends CI_Controller
         $config['center'] = "-8.0292124,112.6274501";
         $config['zoom'] = 14;
         $config['map_height'] = "700px";
-        // $config['directionsStart'] = "auto";
-        // $config['directionsEnd'] = "-8.032495 , 112.642466";
         $this->googlemaps->initialize($config);
 
         $marker = array();
@@ -41,5 +39,12 @@ class Map extends CI_Controller
 
         $data['map'] = $this->googlemaps->create_map();
         $this->load->view('Map/Index', $data);
+    }
+
+    function get_asu()
+    {
+        $data = $this->MMaps->getData()->result();
+
+        echo json_encode($data);
     }
 }
