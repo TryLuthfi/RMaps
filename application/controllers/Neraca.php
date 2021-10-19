@@ -17,36 +17,7 @@ class Neraca extends CI_Controller
 
         $data['title'] = 'Neraca';
         $data['judul'] = 'Neraca hari ini';
-        $kas = $this->MNeraca->getData();
-        foreach ($kas as $row) {
-            if ($row['nama_kode'] == 'Kas') {
-                $data['kas'] =  $row['total'];
-            } else if ($row['nama_kode'] == 'Piutang Informent') {
-                $data['piutang_informent'] =  $row['total'];
-            } else if ($row['nama_kode'] == 'Bahan Habis Pakai') {
-                $data['piutang_informent'] =  $row['total'];
-            } else if ($row['nama_kode'] == 'Sewa Bayar di Muka') {
-                $data['sewa_bayar_di_muka'] =  $row['total'];
-            } else if ($row['nama_kode'] == 'Piutang Gaji') {
-                $data['piutang_gaji'] =  $row['total'];
-            } else if ($row['nama_kode'] == 'Piutang Usaha') {
-                $data['piutang_usaha'] =  $row['total'];
-            } else if ($row['nama_kode'] == 'Modal') {
-                $data['modal'] =  $row['total'];
-            }
-        }
-        $piutanggaji = $this->MNeraca->getPiutangGaji();
-        foreach ($piutanggaji as $row) {
-            $data['piutanggaji'] = $row['jumlah'];
-        }
-        $piutangpenjualan = $this->MNeraca->getPiutangPenjualan();
-        foreach ($piutangpenjualan as $row) {
-            $data['piutangpenjualan'] =  $row['jumlah'];
-        }
-        $piutanginforment = $this->MNeraca->getPiutangInforment();
-        foreach ($piutanginforment as $row) {
-            $data['piutanginforment'] =  $row['jumlah'];
-        }
+        $data['neraca'] = $this->MNeraca->getData();
 
         $this->load->view('Templates/01_Header', $data);
         $this->load->view('Templates/02_Menu');

@@ -5,7 +5,7 @@ class Map extends CI_Controller
     {
         parent::__construct();
         $this->load->model('MMaps');
-        $this->load->library('googlemaps');
+        $this->load->library('Googlemaps');
     }
     function index()
     {
